@@ -1,6 +1,10 @@
-import { createFactory, Component } from 'react'
+import { createElement, Component } from 'react'
 import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
+
+function createFactory(type) {
+  return createElement.bind(null, type)
+}
 
 const shouldUpdate = test => BaseComponent => {
   const factory = createFactory(BaseComponent)
